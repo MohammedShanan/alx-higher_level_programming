@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-for l in "abcdefghijklmnopqrstuvwxyz":
-    print("{}".format(l), end="")
+for letter in "abcdefghijklmnopqrstuvwxyz":
+    print("{}".format(letter), end="")

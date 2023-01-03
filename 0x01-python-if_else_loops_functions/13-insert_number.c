@@ -23,7 +23,7 @@ return (node);
 }
 else if (tmp->n >= number)
 {
-node->next = tmp->next;
+node->next = tmp;
 *head = node;
 return (node);
 }

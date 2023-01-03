@@ -1,0 +1,2 @@
+check file prem: git ls-files --stage
+change file prem: git update-index --chmod=+x

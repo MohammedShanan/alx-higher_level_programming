@@ -21,6 +21,12 @@ node->next = tmp->next;
 tmp->next = node;
 return (node);
 }
+else if (tmp->n >= number)
+{
+node->next = tmp->next;
+*head = node;
+return (node);
+}
 }
 else
 {

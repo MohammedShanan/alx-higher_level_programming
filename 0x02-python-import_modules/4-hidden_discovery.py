@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def main():
-    names = filter(lambda x: not x.stratswith('__'), dir(hid4))
+    names = filter(lambda x: not x.startswith('__'), dir(hid4))
     print("\n".join(names))
 
 

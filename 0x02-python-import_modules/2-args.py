@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-from sys import argv
-
-
 def main():
     user_input = argv[1:]
     argc = len(user_input)
@@ -14,4 +11,5 @@ def main():
 
 
 if __name__ == "__main__":
+    from sys import argv
     main()

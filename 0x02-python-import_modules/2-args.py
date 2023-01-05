@@ -4,8 +4,6 @@ def main():
     argc = len(user_input)
     if argc == 0:
         print("0 arguments.")
-    elif argc == 1:
-        print("1 argument:")
     else:
         print(f"{argc} arguments:")
     for i in range(argc):

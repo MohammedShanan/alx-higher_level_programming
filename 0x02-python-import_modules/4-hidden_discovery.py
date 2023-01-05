@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 def main():
     names = filter(lambda x: not x.startswith('__'), dir(hid4))
-    map(print, names)
+    for name in names:
+        print(name)
 
 
 if __name__ == "__main__":

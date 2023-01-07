@@ -9,9 +9,12 @@
  */
 int main(void)
 {
-    listint_t *head;
-
-    head = NULL;
+    listint_t *head, *tmp;
+    tmp = NULL;
+    head = tmp;
+    add_nodeint_end(&head, 1);
+    add_nodeint_end(&head, 2);
+    add_nodeint_end(&head, 2);
     add_nodeint_end(&head, 1);
     print_listint(head);
 
@@ -24,4 +27,3 @@ int main(void)
 
     return (0);
 }
-

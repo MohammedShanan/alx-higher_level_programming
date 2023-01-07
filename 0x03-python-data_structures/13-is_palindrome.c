@@ -8,9 +8,9 @@ if (head == NULL)
 return (0);
 first_half = fast_ptr = tmp = slow_ptr = *head;
 second_half = mid_node = NULL;
-if (*head == NULL)
+if (*head == NULL || tmp->next == NULL)
 return (1);
-while (fast_ptr && fast_ptr->next)
+while (fast_ptr != NULL && fast_ptr->next != NULL)
 {
 fast_ptr = fast_ptr->next->next;
 tmp = slow_ptr;
@@ -26,15 +26,13 @@ tmp->next = NULL;
 reverse_linked_list(&second_half);
 result = list_compare(first_half, second_half);
 reverse_linked_list(&second_half);
-if (mid_node)
+if (mid_node != NULL)
 {
 tmp->next = mid_node;
 mid_node = second_half;
 }
 else
-{
 tmp->next = second_half;
-}
 return (result);
 }
 
@@ -55,7 +53,7 @@ current = tmp;
 
 int list_compare(listint_t *list1, listint_t *list2)
 {
-while (list1 && list2)
+while (list1 != NULL && list2 != NULL)
 {
 if (list1->n != list2->n)
 {

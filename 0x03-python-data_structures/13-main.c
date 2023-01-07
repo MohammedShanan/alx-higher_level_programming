@@ -13,9 +13,6 @@ int main(void)
     tmp = NULL;
     head = tmp;
     add_nodeint_end(&head, 1);
-    add_nodeint_end(&head, 2);
-    add_nodeint_end(&head, 2);
-    add_nodeint_end(&head, 1);
     print_listint(head);
 
     if (is_palindrome(&head) == 1)
@@ -23,6 +20,7 @@ int main(void)
     else
         printf("Linked list is not a palindrome\n");
 
+    print_listint(head);
     free_listint(head);
 
     return (0);

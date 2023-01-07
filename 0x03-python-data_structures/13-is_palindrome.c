@@ -4,10 +4,10 @@ int is_palindrome(listint_t **head)
 listint_t *fast_ptr, *first_half, *second_half;
 listint_t *slow_ptr, *mid_node, *tmp;
 int result = 0;
+if (head == NULL)
+return (0);
 first_half = fast_ptr = tmp = slow_ptr = *head;
 second_half = mid_node = NULL;
-if (head == NULL)
-return (1);
 if (*head == NULL)
 return (1);
 while (fast_ptr && fast_ptr->next)

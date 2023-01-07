@@ -7,7 +7,7 @@ int result = 0;
 first_half = fast_ptr = tmp = slow_ptr = *head;
 second_half = mid_node = NULL;
 if (head == NULL)
-return (0);
+return (1);
 if (*head == NULL)
 return (1);
 while (fast_ptr && fast_ptr->next)

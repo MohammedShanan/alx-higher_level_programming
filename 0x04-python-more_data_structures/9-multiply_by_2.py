@@ -2,4 +2,4 @@
 def multiply_by_2(a_dictionary):
     return {key: value * 2 for key, value in a_dictionary.items()}
 
-# dict(zip(a_dictionary.keys(),map(lambda x: a_dictionary[x] * 2, a_dictionary)))
+# dict(zip(dict.keys(),map(lambda x: dict[x] * 2, dict)))

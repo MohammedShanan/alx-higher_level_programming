@@ -30,7 +30,7 @@ class Square:
         """
         Getter
         Returns:size        
-            """
+        """
         return self.__size
 
     @size.setter

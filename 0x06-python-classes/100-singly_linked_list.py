@@ -77,7 +77,6 @@ class Node:
         else:
             self.__next_node = value
 
-
 class SinglyLinkedList:
     """
     class SinglyLinkedList definition
@@ -106,23 +105,26 @@ class SinglyLinkedList:
         value: int data for node
         """
         new_node = Node(value)
-        tmp = self.head
+        tmp = self.__head
         if tmp is None:
+            self.__head = new_node
+            return
+        if tmp.data > new_node.data:
             new_node.next_node = tmp
-            self.head = new_node
+            self.__head = new_node
         else:
-            while (tmp.next_node):
+            while (tmp.next_node is not None):
                 if new_node.data <= tmp.next_node.data:
                     break
                 tmp = tmp.next_node
-            new_node = tmp.next_node
+            new_node.next_node = tmp.next_node
             tmp.next_node = new_node
 
     def __str__(self):
         """
         String representation of singly linked list needed to print
         """
-        tmp = self.head
+        tmp = self.__head
         string = ""
         while (tmp):
             string += str(tmp.data)
@@ -130,3 +132,18 @@ class SinglyLinkedList:
             if tmp is not None:
                 string += "\n"
         return string
+
+
+sll = SinglyLinkedList()
+sll.sorted_insert(2)
+sll.sorted_insert(5)
+sll.sorted_insert(3)
+sll.sorted_insert(10)
+sll.sorted_insert(1)
+sll.sorted_insert(-4)
+sll.sorted_insert(-3)
+sll.sorted_insert(4)
+sll.sorted_insert(5)
+sll.sorted_insert(12)
+sll.sorted_insert(3)
+print(sll)

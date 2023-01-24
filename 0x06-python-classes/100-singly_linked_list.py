@@ -95,7 +95,7 @@ class SinglyLinkedList:
         Attributes:
             head: private
         """
-
+        self.head = None
     def sorted_insert(self, value):
         """
         Inserts new nodes into singly linked list in sorted order

@@ -99,6 +99,19 @@ class SinglyLinkedList:
         """
         self.__head = None
 
+    def __str__(self):
+        """
+        String representation of singly linked list needed to print
+        """
+        string = ""
+        tmp = self.__head
+        while tmp is not None:
+            string += str(tmp.data)
+            tmp = tmp.next_node
+            if tmp is not None:
+                string += "\n"
+        return string
+
     def sorted_insert(self, value):
         """
         Inserts new nodes into singly linked list in sorted order
@@ -106,29 +119,19 @@ class SinglyLinkedList:
         Args:
         value: int data for node
         """
-        new_node = Node(value)
-        tmp = self.__head
-        if tmp is None:
-            self.__head = new_node
+        new = Node(value)
+        if self.__head is None:
+            self.__head = new
             return
-        if tmp.data > new_node.data:
-            new_node.next_node = tmp
-            self.__head = new_node
-        else:
-            while (tmp.next_node is not None) and (new_node.data > tmp.next_node.data):
-                tmp = tmp.next_node
-            new_node.next_node = tmp.next_node
-            tmp.next_node = new_node
 
-    def __str__(self):
-        """
-        String representation of singly linked list needed to print
-        """
         tmp = self.__head
-        string = ""
-        while (tmp):
-            string += str(tmp.data)
+        if new.data < tmp.data:
+            new.next_node = self.__head
+            self.__head = new
+            return
+
+        while (tmp.next_node is not None) and (new.data > tmp.next_node.data):
             tmp = tmp.next_node
-            if tmp is not None:
-                string += "\n"
-        return string
+        new.next_node = tmp.next_node
+        tmp.next_node = new
+        return

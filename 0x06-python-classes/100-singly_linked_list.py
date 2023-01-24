@@ -77,6 +77,7 @@ class Node:
         else:
             self.__next_node = value
 
+
 class SinglyLinkedList:
     """
     class SinglyLinkedList definition
@@ -97,6 +98,7 @@ class SinglyLinkedList:
             head: private
         """
         self.__head = None
+
     def sorted_insert(self, value):
         """
         Inserts new nodes into singly linked list in sorted order

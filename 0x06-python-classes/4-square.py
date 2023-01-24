@@ -25,7 +25,7 @@ class Square:
         Initializes square
 
         Attributes:
-            size (int): defaults to 0 if none; don't use __size to call setter
+            size (int): size of square
         """
         self.size = size
 
@@ -44,7 +44,7 @@ class Square:
         Setter
 
         Args:
-            value: sets size to value, if int and >= 0
+            value: value of size
         """
         if type(value) is not int:
             raise TypeError("size must be an integer")

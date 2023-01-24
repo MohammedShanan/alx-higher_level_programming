@@ -60,3 +60,9 @@ class Square:
             area
         """
         return (self.__size)**2
+
+    def my_print(self):
+        """
+        print the  square with #
+        """
+        print("\n".join(["#" * self.__size for _ in range(self.__size)]))

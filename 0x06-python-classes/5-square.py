@@ -1,15 +1,18 @@
 #!/usr/bin/python3
 """
-    module 4-square
-    defines class square
-    """
+Module 4-square
+Defines class Square with private size and public area
+Can access and update size
+"""
 
 
 class Square:
     """
-    class square definition
+    class Square definition
+
     Args:
-        size: size of the square
+        size (int): size of a side in square
+
     Functions:
         __init__(self, size)
         size(self)
@@ -19,37 +22,41 @@ class Square:
 
     def __init__(self, size=0):
         """
-        initialize square
+        Initializes square
+
         Attributes:
-            size (int): size of the square
+            size (int): size of square
         """
         self.size = size
 
     @property
     def size(self):
-        """Getter
+        """"
+        Getter
 
-        Returns:size        
-            """
+        Return: size
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter
+        """
+        Setter
 
         Args:
-            value (int): size value
+            value: value of size
         """
         if type(value) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
 
     def area(self):
         """
-        calculate the area of the square
+        Calculates area of square
         Returns:
             area
         """
-        return self.__size ** 2
+        return (self.__size)**2

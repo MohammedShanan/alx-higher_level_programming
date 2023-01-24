@@ -50,7 +50,7 @@ class Node:
         Args:
             value: sets data to value if int
         """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("data must be an integer")
         self.__data = value
 
@@ -71,7 +71,7 @@ class Node:
         Args:
             value: sets next_node if value is next_node or None
         """
-        if not isinstance(value, Node) or value is not None:
+        if type(value) is not Node and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 

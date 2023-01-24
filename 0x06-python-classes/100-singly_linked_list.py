@@ -113,8 +113,8 @@ class SinglyLinkedList:
             new_node.next_node = tmp
             self.__head = new_node
         else:
-            while (tmp.next_node is not None) and (new.data > tmp.next_node.data):
-            tmp = tmp.next_node
+            while (tmp.next_node is not None) and (new_node.data > tmp.next_node.data):
+                tmp = tmp.next_node
             new_node.next_node = tmp.next_node
             tmp.next_node = new_node
 

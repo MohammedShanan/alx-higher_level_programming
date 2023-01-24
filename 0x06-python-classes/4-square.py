@@ -27,16 +27,16 @@ class Square:
 
     @property
     def size(self):
-        """Getter
-
+        """
+        Getter
         Returns:size        
             """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter
-
+        """
+        Setter
         Args:
             value (int): size value
         """
@@ -49,7 +49,6 @@ class Square:
     def area(self):
         """
         calculate the area of the square
-        Returns:
-            area
+        Returns:area
         """
         return self.__size ** 2

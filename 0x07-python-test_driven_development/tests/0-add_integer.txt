@@ -1,9 +1,9 @@
-# run test with python3 -m doctest -v ./tests/0-add_integer.txt
+# run test with python -m doctest -v ./tests/0-add_integer.txt
 
 First import method to Test
 >>> add_integer = __import__('0-add_integer').add_integer
 
-Success CASES:
+SUCCESS CASES:
 Test with int:
     >>> print(add_integer(4,7))
     11
@@ -24,7 +24,7 @@ Test with default b=98:
     >>> print(add_integer(4))
     102
 
-Fail CASES:
+FAIL CASES:
 Test no arg:
     >>> print(add_integer())
     Traceback (most recent call last):

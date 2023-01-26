@@ -1,0 +1,42 @@
+# run test with python -m doctest -v ./tests/3-say_my_name.txt
+
+First import method to test
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+SUCCESS CASES:
+ 
+Test given First and last name:
+        >>> say_my_name("Walter", "White")
+        My name is Walter White
+
+        >>> say_my_name("Mohammed", "Shanan")
+        My name is Mohammed Shanan
+
+Test given only First name:
+    >>> say_my_name("Mohammed")
+    My name is Mohammed 
+
+Test extra args:
+    >>> say_my_name("Mohammed", "Ali", "klay")
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+Test too few args:
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+
+Test wrong first_name type:
+    >>> say_my_name(13, "Reasons Why")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Test wrong last_name type:
+    >>> say_my_name("You", ["are", "Heisenberg"])
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string

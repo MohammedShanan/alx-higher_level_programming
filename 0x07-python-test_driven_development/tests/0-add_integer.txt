@@ -1,0 +1,60 @@
+First import method to test
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Success CASES:
+test with int:
+    >>> print(add_integer(4,7))
+    11
+    >>> print(add_integer(4,-4))
+    0
+    >>> print(add_integer(-4,0))
+    -4
+test with float:
+    >>> print(add_integer(4.4, 4.5))
+    8
+    >>> print(add_integer(4, 8.9))
+    12
+    >>> print(add_integer(4, -3.8))
+    1
+test with default b=98:
+    >>> print(add_integer(4))
+    102
+
+Fail CASES:
+test no arg:
+    >>> print(add_integer())
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+test wrong type:
+    >>> print(add_integer("1", 4))
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    >>> print(add_integer(1, "4"))
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+    
+test extra arg:
+    >>> print(add_integer(1, 3, 4))
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+test float("inf") and float("-inf") :
+    >>> print(add_integer(float("inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
+     >>> print(add_integer(float("-inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
+
+Test special float NaN in Python (not a number):
+     >>> print(add_integer(float("NaN")))
+     Traceback (most recent call last):
+     ...
+     ValueError: cannot convert float NaN to integer

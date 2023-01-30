@@ -44,11 +44,6 @@ class Rectangle():
         self.height = height
         type(self).number_of_instances += 1
 
-    def __del__(self):
-        """ Deletes instance of class """
-        print("Bye rectangle...")
-        type(self).number_of_instances -= 1
-
     @property
     def width(self):
         """ Getter returns width """
@@ -59,7 +54,7 @@ class Rectangle():
         """ Setter sets width if int > 0 """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
 
@@ -73,44 +68,41 @@ class Rectangle():
         """ Setter sets height if int > 0 """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
         """ Return width * height """
-        return self.__width * self.__height
+        return self.__height * self.__width
 
     def perimeter(self):
         """ Return 2*width + 2*height (or return 0 if width or height is 0)"""
-        if self.__width == 0 or self.__height == 0:
-            return 0
-        return (2 * self.__width) + (2 * self.height)
+        return (self.__height * 2) + (self.__width)
 
     def __str__(self):
         """ Prints rectangle with #'s """
         if self.__width == 0 or self.__height == 0:
             return ""
-        pic = "\n".join([str(self.print_symbol) * self.__width
-                         for rows in range(self.__height)])
-        return pic
+        symbl = str(self.print_symbol)
+        return "\n".join([symbl * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
         """ String representation to recreate new instance """
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
 
+    def __del__(self):
+        """ Deletes instance of class """
+        print("Bye rectangle...")
+        type(self).number_of_instances -= 1
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """ Returns which rectangle has a bigger area"""
-        if not isinstance(rect_1, Rectangle) or \
-                not isinstance(rect_2, Rectangle):
-            raise TypeError("{} must be an instance of Rectangle".
-                            format("rect_1" if not
-                                   isinstance(rect_1, Rectangle)
-                                   else "rect_2"))
-        if rect_2.area() > rect_1.area():
-            return rect_2
-        return rect_1
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        return rect_2 if rect_2.area() > rect_1.area() else rect_1
 
     @classmethod
     def square(cls, size=0):

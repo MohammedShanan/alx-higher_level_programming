@@ -67,12 +67,3 @@ class Rectangle:
             return 0
         return (self.__height * 2) + (self.__width * 2)
 
-    def __str__(self):
-        """ Prints rectangle with #'s """
-        if self.__width == 0 or self.__height == 0:
-            return ""
-        return "\n".join(["#" * self.__width for _ in self.__height])
-
-    def __repr__(self):
-        """ String representation to recreate new instance """
-        return "Rectangle({:d}, {:d})".format(self.width, self.height)

@@ -7,7 +7,6 @@ deletes, has public attribute to keep track of number of instances,
 and has static method that returns bigger rectangle out of two given
 """
 
-
 class Rectangle():
     """
     Defines class rectangle with private attribute width and height

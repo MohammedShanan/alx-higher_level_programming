@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Module 2-rectangle
+Module 3-rectangle
 Contains class Rectangle with private attribute width and height,
-and public area and perimeter methods
+public area and perimeter methods, and allows printing #'s
 """
 
 
@@ -22,6 +22,7 @@ class Rectangle:
         height(self, value)
         area(self)
         perimeter(self)
+        __str__(self)
     """
 
     def __init__(self, width=0, height=0):
@@ -65,3 +66,9 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return (self.__height * 2) + (self.__width * 2)
+
+    def __str__(self):
+        """ Prints rectangle with #'s """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        return "\n".join(["#" * self.__width for _ in self.__height])

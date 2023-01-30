@@ -31,6 +31,7 @@ class Rectangle():
         __repr__(self)
         __del__(self)
     """
+
     number_of_instances = 0
     print_symbol = "#"
 

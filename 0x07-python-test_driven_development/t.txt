@@ -1,0 +1,77 @@
+Trying:
+    lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+Expecting nothing
+ok
+Trying:
+    m_a = [[1, 2], [3, 4]]
+Expecting nothing
+ok
+Trying:
+    m_b = [[2, 0], [1, 2]]
+Expecting nothing
+ok
+Trying:
+    print(lazy_matrix_mul(m_a, m_b))
+Expecting:
+    [[ 4  4]
+     [10  8]]
+ok
+Trying:
+    m_a = [[-2.0, -3.0]]
+Expecting nothing
+ok
+Trying:
+    m_b = [[-2.0], [-4.0]]
+Expecting nothing
+ok
+Trying:
+    print(lazy_matrix_mul(m_a, m_b))
+Expecting:
+    [[16.]]
+ok
+Trying:
+    m_a = []
+Expecting nothing
+ok
+Trying:
+    m_b = [[2, 0], [1, 2]]
+Expecting nothing
+ok
+Trying:
+    print(lazy_matrix_mul(m_a, m_b))
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 0)
+ok
+Trying:
+    m_a = [[2, 0], [1, 2]]
+Expecting nothing
+ok
+Trying:
+    m_b = []
+Expecting nothing
+ok
+Trying:
+    print(lazy_matrix_mul(m_a, m_b))
+Expecting:
+    Traceback (most recent call last):
+    ...
+    ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 0 is different from 2)
+ok
+Trying:
+    m_a = [["hey"], ["you"]]
+Expecting nothing
+ok
+Trying:
+    print(lazy_matrix_mul(m_a, m_a))
+Expecting:
+    Traceback (most recent call last):
+    ...
+    numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('<U3'), dtype('<U3')) -> None
+ok
+1 items passed all tests:
+  15 tests in 101-lazy_matrix_mul.txt
+15 tests in 1 items.
+15 passed and 0 failed.
+Test passed.

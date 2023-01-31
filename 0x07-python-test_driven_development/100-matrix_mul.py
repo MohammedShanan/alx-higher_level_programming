@@ -5,6 +5,7 @@ Contains method that does matrix multiplication
 Requires same size lists/rows of ints or floats
 """
 
+
 def validate_matrices(m_a, m_b):
     """
     validate matrices
@@ -31,10 +32,11 @@ def validate_matrices(m_a, m_b):
                 raise TypeError("m_b must be a list of lists")
             for n in eachrow:
                 if not isinstance(n, (int, float)):
-                    raise TypeError("m_b should contain only integers or floats")
+                    raise TypeError(
+                        "m_b should contain only integers or floats")
             if len(eachrow) != len(m_b[0]):
-                raise TypeError("each row of m_b must should be of the same size")
-                
+                raise TypeError(
+                    "each row of m_b must should be of the same size")
 
 
 def matrix_mul(m_a, m_b):

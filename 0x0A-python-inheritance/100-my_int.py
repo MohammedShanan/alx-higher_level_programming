@@ -1,19 +1,34 @@
 #!/usr/bin/python3
 """
-Module 1-my_list
+Module 100-my_int
 
-Contains class MyList
-inherits from list; has public instance method to print sorted
+Contains class MyInt that inherits from int
+Sneaky --> has == and != operators inverted!
 """
 
 
-class MyList(list):
-    """inherits from list
-
-    methods:
-    print_sorted(self)
+class MyInt(int):
+    """
+    Methods:
+        __init__(self, num)
+        __eq__(self, other)
+        __ne__(self, other)
     """
 
-    def print_sorted(self):
-        """prints list of ints all sorted in ascending order"""
-        print(sorted(self))
+    def __init__(self, num):
+        """initialize num"""
+        self.num = num
+
+    def __eq__(self, other):
+        """
+        Return:
+           True if both not equal
+        """
+        return self.num != other
+
+    def __ne__(self, other):
+        """
+        Return:
+           True if both equal
+        """
+        return self.num == other

@@ -4,7 +4,7 @@ Module 7-add_item
 
 Contains function that adds and saves to Python obj to JSON file; loads objects
 
-# run with ./9-add_item.py
+# run with ./7-add_item.py
 #
 # cat add_item.json ; echo ""
 # expect output: []

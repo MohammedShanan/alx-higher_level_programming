@@ -24,10 +24,13 @@ class Base:
     Methods:
         __init__(self, id=None)
     Static Methods:
-        to_json_string(list_dictionaries)   from_json_string(json_string)
+        to_json_string(list_dictionaries)
+        from_json_string(json_string)
     Class Methods:
-        save_to_file(cls, list_objs)        save_to_file_csv(cls, list_objs)
-        load_from_file(cls)                 load_from_file_csv(cls)
+        save_to_file(cls, list_objs)
+        save_to_file_csv(cls, list_objs)
+        load_from_file(cls)
+        load_from_file_csv(cls)
         create(cls, **dictionary)
     """
 
@@ -79,10 +82,10 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """Returns list of instances"""
-        filenamee = cls.__name__ + ".json"
+        filename = cls.__name__ + ".json"
         l = []
         try:
-            with open(filenamee, "r") as f:
+            with open(filename, "r") as f:
                 instances = cls.from_json_string(f.read())
             for i, dic in enumerate(instances):
                 l.append(cls.create(**instances[i]))

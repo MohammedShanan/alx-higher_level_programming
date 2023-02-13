@@ -7,18 +7,32 @@ Unittest for Rectangle Class
 
 
 import os
-# import pep8
+import pep8
 import unittest
 from io import StringIO
 from contextlib import redirect_stdout
 from models import rectangle
+from unittest.mock import patch
 Rectangle = rectangle.Rectangle
 
 
-class TestBase(unittest.TestCase):
+class TestPep8(unittest.TestCase):
+    """Pep8 models/rectangle.py & tests/test_models/test_rectangle.py"""
+
+    def test_pep8(self):
+        """Pep8"""
+        style = pep8.StyleGuide(quit=False)
+        errors = 0
+        files = ["models/rectangle.py", "tests/test_models/test_rectangle.py"]
+        errors += style.check_files(files).total_errors
+        self.assertEqual(errors, 0, 'Need to fix Pep8')
+
+
+class TestRectangle(unittest.TestCase):
     """Tests for models/rectangle.py"""
 
     """Test attributes"""
+
     def test_all_attr_given(self):
         """Test all attributes match what's given"""
         r1 = Rectangle(10, 20, 1, 2, 99)
@@ -67,6 +81,7 @@ class TestBase(unittest.TestCase):
             print(Rectangle.__y)
 
     """Test args given"""
+
     def test_invalid_args(self):
         """Test too many args given throws error"""
         with self.assertRaises(TypeError):
@@ -78,13 +93,66 @@ class TestBase(unittest.TestCase):
             Rectangle(None)
 
     """Test class"""
+
     def test_class(self):
         """Test class created is indeed Rectangle"""
         self.assertEqual(type(Rectangle(1, 2)), Rectangle)
 
     """Test methods"""
+
     def test_area(self):
         """Test method: area"""
         self.assertEqual(Rectangle(3, 4).area(), 12)
         self.assertEqual(Rectangle(8, 7, 0, 0).area(), 56)
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
+
+    def test_display(self):
+        """Test method: display"""
+        with patch('sys.stdout', new=StringIO()) as buff:
+            Rectangle(5, 3).display()
+            self.assertEqual(buff.getvalue(), '#####\n#####\n#####\n')
+        with redirect_stdout(StringIO()) as buff:
+            Rectangle(5, 3, 1, 2).display()
+            self.assertEqual(buff.getvalue(), '\n\n #####\n #####\n #####\n')
+
+    def test_print(self):
+        """Test method: __str__"""
+        r = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(str(r), '[Rectangle] (5) 3/4 - 1/2')
+
+    def test_update(self):
+        """Test method: update(*args)"""
+        r = Rectangle(1, 2, 3, 4, 5)
+        r.update(10, 10, 10, 10, 10)
+        self.assertEqual(str(r), '[Rectangle] (10) 10/10 - 10/10')
+        r.update()
+        self.assertEqual(str(r), '[Rectangle] (10) 10/10 - 10/10')
+        r.update(99)
+        self.assertEqual(str(r), '[Rectangle] (99) 10/10 - 10/10')
+        r.update(99, 1)
+        self.assertEqual(str(r), '[Rectangle] (99) 10/10 - 1/10')
+        r.update(99, 1, 2)
+        self.assertEqual(str(r), '[Rectangle] (99) 10/10 - 1/2')
+        r.update(99, 1, 2, 3, 4)
+        self.assertEqual(str(r), '[Rectangle] (99) 3/4 - 1/2')
+        """Test invalid *args"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r.update(99, 1, 2, 3, "string")
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r.update(99, 1, 2, 3, -99)
+        """Test method: update(*kwargs)"""
+        r.update(id=55)
+        self.assertEqual(str(r), '[Rectangle] (55) 3/4 - 1/2')
+        r.update(id=44, x=770, y=880, width=990)
+        self.assertEqual(str(r), '[Rectangle] (44) 770/880 - 990/2')
+        """Test mixture of valid and invalid *kwargs"""
+        r.update(nokey=1000, invalid=2000, testing=3000, id=4000)
+        self.assertEqual(str(r), '[Rectangle] (4000) 770/880 - 990/2')
+
+    def test_to_dictionary(self):
+        """Test method: to_dictionary"""
+        rdic = Rectangle(1, 2, 3, 4, 5).to_dictionary()
+        self.assertEqual(type(rdic), dict)
+        r2 = Rectangle(10, 10)
+        r2.update(**rdic)
+        self.assertEqual(str(r2), '[Rectangle] (5) 3/4 - 1/2')

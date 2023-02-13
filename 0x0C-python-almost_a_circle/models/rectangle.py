@@ -153,6 +153,3 @@ class Rectangle(Base):
         d["x"] = self.x
         d["y"] = self.y
         return d
-
-
-

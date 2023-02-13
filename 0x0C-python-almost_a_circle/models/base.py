@@ -86,10 +86,10 @@ class Base():
         try:
             with open(filename, "r") as f:
                 instances = cls.from_json_string(f.read())
-            for i, dic in enumerate(instances):
-                l.append(cls.create(**instances[i]))
+            for dic in instances:
+                l.append(cls.create(**dic))
         except:
-            pass
+            return []
         return l
 
     @classmethod

@@ -14,6 +14,9 @@ Saves to CSV and loads from CSV file
 
 import json
 import csv
+import turtle
+import time
+from itertools import repeat
 
 
 class Base():
@@ -130,3 +133,35 @@ class Base():
                 o = cls.create(**dic)
                 objs.append(o)
         return objs
+
+    def draw(list_rectangles, list_squares):
+        window = turtle.Screen()
+        window.setup(width=1.0, height=1.0)
+        turtle.speed(3)
+        for i, obj in enumerate(list_rectangles):
+            turtle.penup()
+            turtle.goto(-400, (obj.height * 50) // 2 - 10)
+            turtle.write(
+                f"Rectangle Number {i + 1} ---->",
+                font=("Arial", 20, "normal"))
+            turtle.goto(0, 0)
+            turtle.pendown()
+            parameters = [obj.width, obj.height] * 2
+            for size in parameters:
+                turtle.forward(size * 50)
+                turtle.left(90)
+            time.sleep(0.5)
+            turtle.clear()
+
+        for i, obj in enumerate(list_squares):
+            turtle.penup()
+            turtle.goto(-400, (obj.size * 50) // 2 - 10)
+            turtle.write(f"Square Number {i + 1} ---->",
+                         font=("Arial", 20, "normal"))
+            turtle.goto(0, 0)
+            turtle.pendown()
+            for _ in range(4):
+                turtle.forward(obj.size * 50)
+                turtle.left(90)
+            time.sleep(0.5)
+            turtle.clear()

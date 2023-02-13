@@ -16,7 +16,7 @@ import json
 import csv
 
 
-class Base:
+class Base():
     """
     defines class Base
     Class Attributes:

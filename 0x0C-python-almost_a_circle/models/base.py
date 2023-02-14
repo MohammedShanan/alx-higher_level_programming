@@ -122,7 +122,7 @@ class Base():
                 o = cls.create(**dic)
                 objs.append(o)
         return objs
-
+    @staticmethod
     def draw(list_rectangles, list_squares):
         window = turtle.Screen()
         window.setup(width=1.0, height=1.0)

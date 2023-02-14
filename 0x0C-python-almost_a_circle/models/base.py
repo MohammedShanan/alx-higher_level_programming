@@ -17,6 +17,7 @@ import csv
 import turtle
 import time
 
+
 class Base():
     """
     defines class Base
@@ -122,6 +123,7 @@ class Base():
                 o = cls.create(**dic)
                 objs.append(o)
         return objs
+
     @staticmethod
     def draw(list_rectangles, list_squares):
         window = turtle.Screen()

@@ -14,12 +14,12 @@ export default class Rectangle {
     }
   }
 
-    rotate () {
-    let tmp = this.width;
+  rotate () {
+    const tmp = this.width;
     this.width = this.height;
     this.height = tmp;
   }
-  
+
   double () {
     this.width *= 2;
     this.height *= 2;

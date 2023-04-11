@@ -7,11 +7,12 @@ function secondMax (array) {
     return (0);
   }
   for (let i = 0; i < array.length; i++) {
-    if (array[i] > max) {
+    let  num = parseInt(array[i], 10);
+    if (num > max) {
       secMax = max;
-      max = array[i];
-    } else if (array[i] < max && array[i] > secMax) {
-      secMax = array[i];
+      max = num;
+    } else if (num < max && num > secMax) {
+      secMax = num;
     }
   }
   if (secMax === -Infinity) {

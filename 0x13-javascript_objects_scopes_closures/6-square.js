@@ -6,12 +6,12 @@ export default class Square extends Rectangle {
     super(size, size);
   }
 
-    charPrint (c) {
+  charPrint (c) {
     if (c === undefined) {
       this.print();
     } else {
       for (let col = 0; col < this.height; col++) {
-	console.log(c.repeat(this.width));
+        console.log(c.repeat(this.width));
       }
     }
   }

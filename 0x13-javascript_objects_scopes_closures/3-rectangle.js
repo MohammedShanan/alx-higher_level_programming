@@ -7,7 +7,8 @@ export default class Rectangle {
       this.height = h;
     }
   }
-  print() {
+
+  print () {
     for (let col = 0; col < this.height; col++) {
       console.log('X'.repeat(this.width));
     }

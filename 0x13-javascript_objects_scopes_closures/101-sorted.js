@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const dict = require('./101-data').dict;
+import { dict } from './101-data';
 
 const newDic = {};
 for (const key in dict) {

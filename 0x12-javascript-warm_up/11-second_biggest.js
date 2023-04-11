@@ -6,7 +6,7 @@ function secondMax (array) {
   if (array.length < 2) {
     return (0);
   }
-  for (num of array) {
+  for (let num of array) {
     if (num > max) {
         secMax = max;
         max = num;

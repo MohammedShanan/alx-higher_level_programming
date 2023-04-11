@@ -7,7 +7,7 @@ function secondMax (array) {
     return (0);
   }
   for (let i = 0; i < array.length; i++) {
-    let  num = parseInt(array[i], 10);
+    const num = parseInt(array[i], 10);
     if (num > max) {
       secMax = max;
       max = num;

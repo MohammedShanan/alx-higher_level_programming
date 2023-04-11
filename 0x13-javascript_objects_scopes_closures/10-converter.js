@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function converter (base) {
+export function converter (base) {
   function convert (n) {
     return n.toString(base);
   }

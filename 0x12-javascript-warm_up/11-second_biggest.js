@@ -6,12 +6,12 @@ function secondMax (array) {
   if (array.length < 2) {
     return (0);
   }
-  for (const num of array) {
-    if (num > max) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > max) {
       secMax = max;
-      max = num;
-    } else if (num < max && num > secMax) {
-      secMax = num;
+      max = array[i];
+    } else if (array[i] < max && array[i] > secMax) {
+      secMax = array[i];
     }
   }
   return (secMax);

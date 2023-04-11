@@ -6,10 +6,10 @@ function secondMax (array) {
   if (array.length < 2) {
     return (0);
   }
-  for (let num of array) {
+  for (const num of array) {
     if (num > max) {
-        secMax = max;
-        max = num;
+      secMax = max;
+      max = num;
     } else if (num < max && num > secMax) {
       secMax = num;
     }

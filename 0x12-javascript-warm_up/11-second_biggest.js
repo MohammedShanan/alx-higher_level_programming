@@ -14,6 +14,9 @@ function secondMax (array) {
       secMax = array[i];
     }
   }
+  if (secMax === -Infinity) {
+    return (max);
+  }
   return (secMax);
 }
 console.log(secondMax(numsArray));

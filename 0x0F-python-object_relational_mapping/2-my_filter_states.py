@@ -1,5 +1,10 @@
 #!/bin/bash/python3
 
+"""
+return matching states
+parameters given to script: username, password, database, state to match
+"""
+
 import MySQLdb
 from sys import argv
 if __name__ == '__main__':
@@ -9,7 +14,10 @@ if __name__ == '__main__':
                          passwd=argv[2],
                          db=argv[3])
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name=%s", (argv[4],))
+    sql_cmd = """SELECT *
+                 FROM states
+                 WHERE name LIKE '{:s}'""".format(argv[4])
+    cursor.execute(sql_cmd)
     for row in cursor.fetchall():
         print(row)
     cursor.close()

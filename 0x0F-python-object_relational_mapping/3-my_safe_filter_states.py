@@ -1,10 +1,9 @@
 #!/bin/bash/python3
 
 """
-return states starting with 'N'
-parameters given to script: username, password, database
+return matching states; safe from MySQL injections
+parameters given to script: username, password, database, state to match
 """
-
 import MySQLdb
 from sys import argv
 if __name__ == '__main__':
@@ -14,7 +13,10 @@ if __name__ == '__main__':
                          passwd=argv[2],
                          db=argv[3])
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    sql_cmd = """SELECT *
+                 FROM states
+                 WHERE name=%s"""
+    cursor.execute(sql_cmd, (argv[4],))
     for row in cursor.fetchall():
         print(row)
     cursor.close()

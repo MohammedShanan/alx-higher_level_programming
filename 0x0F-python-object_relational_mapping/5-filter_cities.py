@@ -14,7 +14,7 @@ if __name__ == '__main__':
                          db=argv[3])
     cursor = db.cursor()
     sql_cmd = """SELECT cities.name
-                 FROM states JOIN cities 
+                 FROM states JOIN cities
                  ON states.id = cities.state_id
                  WHERE states.name=%s
                  ORDER BY cities.id ASC"""

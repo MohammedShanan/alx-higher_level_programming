@@ -16,7 +16,7 @@ if __name__ == '__main__':
     cursor = db.cursor()
     sql_cmd = """SELECT *
                  FROM states
-                 WHERE name LIKE '{:s}'""".format(argv[4])
+                 WHERE name='{:s}'""".format(argv[4])
     cursor.execute(sql_cmd)
     for row in cursor.fetchall():
         print(row)

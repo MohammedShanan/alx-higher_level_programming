@@ -19,6 +19,7 @@ if __name__ == '__main__':
                  WHERE name='{:s}'""".format(argv[4])
     cursor.execute(sql_cmd)
     for row in cursor.fetchall():
-        print(row)
+        if row[1] == argv[4]:
+            print(row)
     cursor.close()
     db.close()

@@ -1,4 +1,4 @@
-#!/bin/bash/python3
+#!/usr/bin/python3
 
 """
 return cities that are in the state given (tables 'cities' 'states)

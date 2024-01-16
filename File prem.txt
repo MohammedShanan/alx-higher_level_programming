@@ -1,2 +1,3 @@
 check file prem: git ls-files --stage
 change file prem: git update-index --chmod=+x --add
+start docker: docker run -it --name mo ubuntu:20.04

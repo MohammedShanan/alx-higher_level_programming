@@ -14,7 +14,7 @@ request.get(starWarsApi, function (err, response, body) {
     //     if (Character.endsWith("/18/")) {
     //       count++;
     //     }
-      }
+    //   }
     }
     console.log(count);
   }

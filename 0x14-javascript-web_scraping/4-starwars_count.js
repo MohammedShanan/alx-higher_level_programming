@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const request = require('request');
+const request = require("request");
 const starWarsApi = process.argv[2];
 request.get(starWarsApi, function (err, response, body) {
   if (err) {
@@ -9,7 +9,8 @@ request.get(starWarsApi, function (err, response, body) {
     let count = 0;
     for (const movie in movies) {
       for (const Character in movie.Characters) {
-        if (Character.endsWith('/18/')) {
+        console.log(Character);
+        if (Character.endsWith("/18/")) {
           count++;
         }
       }

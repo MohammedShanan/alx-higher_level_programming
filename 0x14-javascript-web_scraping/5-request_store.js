@@ -8,8 +8,7 @@ request.get(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else if (response.statusCode === 200) {
-    const jsonResponse = JSON.parse(body);
-    fs.writeFile(filename, jsonResponse, 'utf8', (err) => {
+    fs.writeFile(filename, body, 'utf8', (err) => {
       if (err) {
         console.log(err);
       }

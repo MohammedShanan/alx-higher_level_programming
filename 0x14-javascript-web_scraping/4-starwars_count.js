@@ -8,8 +8,8 @@ request.get(starWarsApi, function (err, response, body) {
     const movies = JSON.parse(body).results;
     let count = 0;
     for (let movie of movies) {
-    console.log(movie);
-      for (let Character of movie.Characters) {
+      console.log(movie);
+      for (let Character of movie["Characters"]) {
         console.log(Character);
         if (Character.endsWith("/18/")) {
           count++;

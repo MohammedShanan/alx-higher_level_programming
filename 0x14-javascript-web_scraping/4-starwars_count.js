@@ -5,6 +5,7 @@ request.get(starWarsApi, function (err, response, body) {
   if (err) {
     console.log(err);
   } else if (response.statusCode === 200) {
+    console.log("here")
     const movies = JSON.parse(body).results;
     let count = 0;
     for (let movie in movies) {
